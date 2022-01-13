@@ -16,7 +16,9 @@ namespace Turnos.Models
 
         public DbSet<Paciente> Paciente { get; set; }
 
-        public DbSet<Turnos.Models.Medico> Medico { get; set; }
+        public DbSet<Medico> Medico { get; set; }
+
+        public DbSet<MedicoEspecialidad> MedicoEspecialidad {get; set;}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -100,6 +102,19 @@ namespace Turnos.Models
                 .IsRequired()
                 .IsUnicode(false);
             });
+
+            // Definir la llave primaria de la entidad MedicoEspecialidad.
+            modelBuilder.Entity<MedicoEspecialidad>().HasKey(x => new { x.IdMedico, x .IdEspecialidad});      
+            
+            // Relación de 1 a n entre Medico vs MedicoEspecialidad
+            modelBuilder.Entity<MedicoEspecialidad>().HasOne(x => x.Medico)
+            .WithMany(p => p.MedicoEspecialidad)
+            .HasForeignKey(p => p.IdMedico);
+
+            // Relación de 1 a n entre Especialidad vs MedicoEspecialidad
+            modelBuilder.Entity<MedicoEspecialidad>().HasOne(x => x.Especialidad)
+            .WithMany(p => p.MedicoEspecialidad)
+            .HasForeignKey(p => p.IdEspecialidad);
         }   
     }
 }
