@@ -3,66 +3,54 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Delete</title>
 </head>
+
 <body>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Medico</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Apellido)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Apellido)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Direccion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Direccion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HorarioAtencionDesde)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HorarioAtencionDesde)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HorarioAtencionHasta)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HorarioAtencionHasta)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="IdMedico" />
-        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-        <a asp-action="Index">Volver</a>
-    </form>
-</div>
+    <h4>¿Está seguro de eliminar el siguiente médico?</h4>
+    <div>
+        <h5>Médico</h5>
+        <hr />
+
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card hoverable blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">
+                            <h5><b>@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellido)</b></h5>
+                        </span>
+                        <hr/>
+                        <dt>
+                            <h6><b>Dirección:</b> @Html.DisplayFor(model => model.Direccion)</h6>
+                        </dt>
+                        <dt>
+                            <h6><b>Teléfono:</b> @Html.DisplayFor(model => model.Telefono)</h6>
+                        </dt>
+                        <dt>
+                            <h6><b>Correo electrónico:</b> @Html.DisplayFor(model => model.Email)</h6>
+                        </dt>
+                        <dt>
+                            <h6><b>Horario atención desde:</b> @Html.DisplayFor(model => model.HorarioAtencionDesde)</h6>
+                        </dt>
+                        <dt>
+                            <h6><b>Horario atención hasta:</b> @Html.DisplayFor(model => model.HorarioAtencionHasta)</h6>
+                        </dt>
+                    </div>
+                    <div class="card-action blue-grey darken-2">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="IdMedico" />
+                            <input type="submit" value="Eliminar" class="waves-effect waves-light btn-small" />
+                            <a asp-action="Index" class="waves-effect waves-light btn-small blue-grey darken-1 right">Volver</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
