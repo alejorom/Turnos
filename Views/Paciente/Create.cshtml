@@ -19,12 +19,12 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">person_pin</i>
-                        <label for="Nombre">Nombre</label>
+                        <label asp-for="Nombre"></label>
                         <input asp-for="Nombre" type="text" class="validate">
                         <span asp-validation-for="Nombre"></span>
                     </div>
                     <div class="input-field col s6">
-                        <label for="Apellido">Apellido</label>
+                        <label asp-for="Apellido"></label>
                         <input asp-for="Apellido" type="text" class="validate">
                         <span asp-validation-for="Apellido"></span>
                     </div>
@@ -32,13 +32,13 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">business</i>
-                        <label for="Direccion">Dirección</label>
+                        <label asp-for="Direccion"></label>
                         <input asp-for="Direccion" type="text" class="validate">
                         <span asp-validation-for="Direccion"></span>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">phone</i>
-                        <label for="Telefono">Teléfono</label>
+                        <label asp-for="Telefono"></label>
                         <input asp-for="Telefono" type="tel" class="validate">
                         <span asp-validation-for="Telefono"></span>
                     </div>
@@ -46,7 +46,7 @@
                 <div class="row">
                     <div class="input-field col s6"> 
                         <i class="material-icons prefix">email</i>
-                        <label for="Email">Correo electrónico</label>
+                        <label asp-for="Email"></label>
                         <input asp-for="Email" type="text" class="validate">
                         <span asp-validation-for="Email"></span>
                     </div>
