@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Turnos.Models
@@ -32,6 +33,6 @@ namespace Turnos.Models
         [Display(Name = "Correo electrónico", Prompt = "Ingrese un correo electrónico")]
         [EmailAddress(ErrorMessage = "No es un correo electrónico válido.")]
         public string Email { get; set; }
-
+        public List<Turno> Turno { get; set; }
     }
 }
