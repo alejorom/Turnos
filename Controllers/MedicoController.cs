@@ -169,15 +169,30 @@ namespace Turnos.Controllers
             var medicoEspecialidad = await _context.MedicoEspecialidad.FirstOrDefaultAsync(me => me.IdMedico == id);
             _context.MedicoEspecialidad.Remove(medicoEspecialidad);
             await _context.SaveChangesAsync();
+
             var medico = await _context.Medico.FindAsync(id);
+            
             _context.Medico.Remove(medico);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
         private bool MedicoExists(int id)
         {
             return _context.Medico.Any(e => e.IdMedico == id);
+        }
+
+        public string TraerHorarioAtencionDesde (int idMedico)
+        {
+            var HorarioAtencionDesde = _context.Medico.Where(m => m.IdMedico == idMedico).FirstOrDefault().HorarioAtencionDesde;
+            return HorarioAtencionDesde.Hour + ":" + HorarioAtencionDesde.Minute;
+        }
+
+        public string TraerHorarioAtencionHasta (int idMedico)
+        {
+            var HorarioAtencionHasta = _context.Medico.Where(m => m.IdMedico == idMedico).FirstOrDefault().HorarioAtencionHasta;
+            return HorarioAtencionHasta.Hour + ":" + HorarioAtencionHasta.Minute;
         }
     }
 }
